@@ -1,6 +1,6 @@
-import './App.css';
+import './App.scss';
 import Heading from './Components/Heading/Heading'
-import SearchForm from './Components/SearchForm/SearchForm';
+import SearchForm from './Components/Search/Search';
 import UserListContainer from './Components/UserListContainer/UserListContainer';
 
 function App() {

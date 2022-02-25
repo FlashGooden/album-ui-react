@@ -1,3 +1,4 @@
+import './User.scss'
 import React from 'react'
 
 export default function User({userName, company, website, albumCount, userPhoto}) {

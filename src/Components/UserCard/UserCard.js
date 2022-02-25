@@ -1,3 +1,4 @@
+import './UserCard.scss'
 import React from 'react'
 import User from '../User/User'
 
