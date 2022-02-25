@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Heading() {
   return (
-    <div>Heading</div>
+    <img alt='Cadence Lab' className='heading'>Cadence Labs Image</img>
   )
 }

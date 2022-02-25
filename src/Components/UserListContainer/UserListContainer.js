@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function UserListContainer() {
   return (
-    <div>UserListContainer</div>
+    <div className='user-list-container'>UserListContainer</div>
   )
 }
