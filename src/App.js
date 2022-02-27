@@ -12,17 +12,17 @@ function App() {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetchAlbums().then(setAlbums).then(console.log)
-    fetchPhotos().then(setPhotos).then(console.log)
-    fetchUsers().then(setUsers).then(console.log)
+    fetchAlbums().then(setAlbums)
+    fetchPhotos().then(setPhotos)
+    fetchUsers().then(setUsers)
 
-  },[albums, photos, users]);
+  },[]);
 
   return (
     <div className="App">
       <Heading />
       <SearchForm />
-      <UserListContainer />
+      <UserListContainer users={users} userPhotos={photos} userAlbums={albums} />
     </div>
   );
 }
