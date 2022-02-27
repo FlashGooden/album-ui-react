@@ -10,15 +10,13 @@ export default function UserListContainer({users, userAlbums, userPhotos}) {
 
   const getUserAlbumCount = (albums) => albums.length
   const getUserName = (user) => user.name
+  const getUserUrl = (user) => user.website
 
   console.log(users, userPhotos, userAlbums)
   const getUserPhoto = ({id}) => {
     console.log(id)
   }
 
-  const getUserUrl = (user) => {
-
-  }
 
   const getUserCompany = (user) => {
 
@@ -34,11 +32,12 @@ export default function UserListContainer({users, userAlbums, userPhotos}) {
     const userName = getUserName(currentUser)
     const userAlbums = getUserAlbums(currentUser)
     const albumCount = getUserAlbumCount(userAlbums)
+    const userUrl = getUserUrl(currentUser)
 
 
     // const userPhoto = getUserPhoto(currentUser)
     // console.log(userPhoto)
-    return {userName, albumCount}
+    return {userName, albumCount, userUrl}
   }
 
   console.log(buildUserProfile(1))
