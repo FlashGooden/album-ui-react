@@ -1,1 +1,36 @@
+.user {
+  display: flex;
+  justify-content: space-evenly;
+  color: #224E83;
+  font-family: Open-sans;
+  letter-spacing: 0px;
+  line-height: 22px;
+  align-items: center;
 
+  &__image {
+    border: 2px solid blue;
+    width: 123px;
+    height: 123px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.875rem;
+  }
+
+  &__info > p {
+    margin: 0;
+  }
+
+  &__name {
+    font-family: Open-sans bold;
+    margin-top: 2.7rem;
+  }
+
+  &__company {
+    font-weight: regular;
+    font-size: 1rem;
+  }
+
+  &__website {
+    text-decoration-thickness: 1.5px;
+    color:#224E83;
+  }
+}
