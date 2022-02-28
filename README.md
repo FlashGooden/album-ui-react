@@ -4,9 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is an application that will list some users, their album counts, website, and company name.
 
 ## Technologies Used
-React
-Axios
-Some sort of Language conversion
+- React
+- Axios
+- Some sort of Language conversion
 
 ## Available Scripts
 
