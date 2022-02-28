@@ -1,51 +1,45 @@
 import './UserListContainer.scss'
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import UserCard from '../UserCard/UserCard'
 
 export default function UserListContainer({users, userAlbums, userPhotos}) {
 
-  const getAllUsers = () => users
-  const getAllPhotos = () => userPhotos
-  const getAllAlbums = () => userAlbums
-
+  const [userList, setUserList] = useState([])
   const getUserAlbumCount = (albums) => albums.length
   const getUserName = (user) => user.name
   const getUserUrl = (user) => user.website
-
-  console.log(users, userPhotos, userAlbums)
-  const getUserPhoto = ({id}) => {
-    console.log(id)
-  }
-
-
-  const getUserCompany = (user) => {
-
-  }
+  const getUserCompany = (user) => user.company.name
 
   const getUserAlbums = ({id}) => {
     return userAlbums.data.filter((album) => album.userId === id)
   }
 
+  const getUserPhoto = (albums) => {
+    const randomAlbum = albums[albums.length * Math.random() | 0]
+    //TODO: Work on large dataSet, large array not persisted between refresh
+    const getFirstMatchedPhotoUrl = userPhotos.data.find((photos) => randomAlbum.id === photos.albumId)
+    return getFirstMatchedPhotoUrl.thumbnailUrl
+  }
 
   const buildUserProfile = (user) => {
-    const currentUser = users.data[1]
+    const currentUser = user
     const userName = getUserName(currentUser)
     const userAlbums = getUserAlbums(currentUser)
     const albumCount = getUserAlbumCount(userAlbums)
     const userUrl = getUserUrl(currentUser)
+    const userCompany = getUserCompany(currentUser)
+    const userPhoto = getUserPhoto(userAlbums)
 
-
-    // const userPhoto = getUserPhoto(currentUser)
-    // console.log(userPhoto)
-    return {userName, albumCount, userUrl}
+    return {userName, albumCount, userUrl, userCompany, userPhoto}
   }
 
-  console.log(buildUserProfile(1))
+  useEffect(() => {
+    if(!users.data) return
 
-  const userList = [
-    {userName: 'Todd', company: 'Company Name', website:'www.website.com', albumCount: 43, userPhoto: ''},
-    {userName: 'Todd', company: 'Company Name', website:'www.website.com', albumCount: 43, userPhoto: ''}
-  ]
+    const userList = users.data.map((user) => buildUserProfile(user))
+    setUserList(userList)
+
+  },[users.data])
 
   return (
     <ul className='user-list-container'>
