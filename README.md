@@ -1,7 +1,6 @@
 # Album-Lister
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-This is an application that will list some users, their album counts, website, and company name.
+This is a project that will build off some UI mocks and also handle some Data to render a list of users. There will be functionality added to dynamically search and filter users. 
 
 ## Technologies Used
 - React
