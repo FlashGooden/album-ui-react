@@ -26,5 +26,6 @@ const fetchAlbums = async () => {
     console.log(console.error)
   }
 }
+const appData = Promise.all([fetchUsers(), fetchPhotos(), fetchAlbums()])
 
-export {fetchUsers, fetchPhotos, fetchAlbums}
+export  {appData}
