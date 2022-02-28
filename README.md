@@ -21,7 +21,7 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ## To Use APP
-You can type in the search field to dynamically look up a user and their info
+You can type in the search field to dynamically look up a user and their info (WIP)
 
 ## MVP Requirements for this APP
 - [ ] Display a list of users in a system
