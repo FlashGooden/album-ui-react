@@ -2,8 +2,9 @@ import './App.scss';
 import { useState, useEffect } from 'react';
 import Heading from './Components/Heading/Heading'
 import SearchForm from './Components/Search/Search';
+import ErrorBoundary from './Components/ErrorBoundry/ErrorBoundry';
 import UserListContainer from './Components/UserListContainer/UserListContainer';
-import {fetchAlbums, fetchPhotos, fetchUsers}from './Api/Api'
+import {appData}from './Api/Api'
 
 function App() {
 
@@ -12,9 +13,13 @@ function App() {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetchAlbums().then(setAlbums)
-    fetchPhotos().then(setPhotos)
-    fetchUsers().then(setUsers)
+    appData.then((data) => {
+      const [users, photos, albums] = data
+
+      setAlbums(albums)
+      setPhotos(photos)
+      setUsers(users)
+    })
 
   },[]);
 
@@ -22,7 +27,9 @@ function App() {
     <div className="App">
       <Heading />
       <SearchForm />
-      <UserListContainer users={users} userPhotos={photos} userAlbums={albums} />
+      <ErrorBoundary>
+        <UserListContainer users={users} userPhotos={photos} userAlbums={albums} />
+      </ErrorBoundary>
     </div>
   );
 }
