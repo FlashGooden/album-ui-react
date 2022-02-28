@@ -5,7 +5,9 @@ export default function User({userName, company, website, albumCount, userPhoto}
 
   return (
     <div className='user'>
-      <img className='user__image' alt='user' src={userPhoto} />
+      <div className='user__image-container'>
+        <img className='user__image' alt='user' src={userPhoto} />
+      </div>
       <div className='user__info'>
         <p className="user__name">{userName}</p>
         <p className="user__company">{company}</p>
